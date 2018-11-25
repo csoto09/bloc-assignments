@@ -1,0 +1,7 @@
+## Short Answer
+1. Why do programmers use pseudocode?
+   * to brainstorm what some should do before beginning to make it.
+2. If you run pseudocode on your computer what would happen?
+   * Best case scenario, it just won't run. Worst case scenario, things break depending on what you type and run (looking at you, "rm -rf /")
+
+## Programming Assignment
