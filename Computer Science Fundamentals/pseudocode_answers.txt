@@ -5,3 +5,25 @@
    * Best case scenario, it just won't run. Worst case scenario, things break depending on what you type and run (looking at you, "rm -rf /")
 
 ## Programming Assignment
+Write the following algorithms in pseudocode:
+
+1. Create a function that takes two numbers and prints out the greater number.
+    INPUT first number
+    INPUT second number
+    IF first number is greater than second number THEN
+        PRINT first number
+    ELSE IF second number is greater than first number THEN
+        PRINT second number
+    END IF
+2. Create a function that prints out the numbers from 1 to 100.
+    INIT total to 0
+    WHILE total is less than 100
+        INCREMENT total
+        PRINT total
+    END WHILE
+3. Create a function that searches for a specific entry in a phonebook.
+    INPUT query
+    EX
+
+
+4. Using the pseudocode you wrote for the previous question, implement it in any computer language of your choice.
