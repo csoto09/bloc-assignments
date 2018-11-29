@@ -48,19 +48,13 @@ Write the following algorithms in pseudocode:
 
 ``` JavaScript
 
-    function findNumber(query) {
-    let phonebook = [
-        {fullName:'Batchelor, Sarah',phoneNumber:'555-1234'},{fullName:'Chon, Michael',phoneNumber:'555-0987'},{fullName:'Stark, Tony',phoneNumber:'555-5555'},{fullName:'Soto, Carlos', phoneNumber:'867-5309'},{fullName:'Musk, Elon',phoneNumber:'111-1212'}
-    ]
-    for(let i = 0, i < query.length, i++) {
-        if (query[i] === phonebook.fullName[i]) {
-            let filtered = phonebook.filter(letter => letter[0] === query[i])
-            return filtered
-        }
+ function findNumber(query) {
+  let phonebook = [{fullName:'Batchelor, Sarah',phoneNumber:'555-1234'},{fullName:'Chon, Michael',phoneNumber:'555-0987'},{fullName:'Stark, Tony',phoneNumber:'555-5555'},{fullName:'Soto, Carlos', phoneNumber:'867-5309'},{fullName:'Musk, Elon',phoneNumber:'111-1212'}];
+  for(let i = 0; i <= query.length-1; i++) {
+    if (query === phonebook[i].fullName) {
+      return phonebook[i].phoneNumber;
     }
-    }
-
-    findNumber('Soto, Carlos');
-
-
+  }
+}
+console.log(findNumber('Soto, Carlos'));
 ```
