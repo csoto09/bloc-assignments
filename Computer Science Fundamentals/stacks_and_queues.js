@@ -14,20 +14,20 @@
 
 // 2. pop
 
-let groceryList = ["apples", "bananas", "cheese", "deli meats"]
+let groceryList = ['apples', 'bananas', 'cheese', 'deli meats'];
 
 function popQueue(arr) {
-    let newList = [];
-    let pop = [];
-    for (i = 0; i < arr.length; i++) {
-        if (arr[i] == arr[0]) {
-            pop.push(arr[i]);
-        } else {
-            newList.push(arr[i]);
-        }
-        groceryList = newList;
+  const newList = [];
+  const pop = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[0]) {
+      pop.push(arr[i]);
+    } else {
+      newList.push(arr[i]);
     }
-    return pop;
+    groceryList = newList;
+  }
+  return pop;
 }
 
 console.log(popQueue(groceryList));
@@ -36,18 +36,16 @@ console.log(groceryList);
 // 3. queue using a class
 
 class Queue {
-    constructor(arr, item) {
-        this.arr = [arr];
-        this.item = item;
-    }
+  constructor(arr, item) {
+    this.arr = [arr];
+    this.item = item;
+  }
 
-    enqueue(item) {
-        return this.arr.unshift(item);
-    } //end enqueue()
+  enqueue(item) {
+    return this.arr.unshift(item);
+  } // end enqueue()
 
-    dequeue() {
-        return this.arr.shift();
-    } // end dequeue()
-
+  dequeue() {
+    return this.arr.shift();
+  } // end dequeue()
 }
-
