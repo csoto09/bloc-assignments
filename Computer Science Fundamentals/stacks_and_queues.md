@@ -3,7 +3,8 @@
 1. What's the main difference between a stack and a queue?
     * The order in which the data is processed: a stack uses LIFO (last one added is the first one to be processed), while queues use FIFO (first one added is the first one to be processed - like standing in line to check out at the grocery store).
 2. What are the similarities between stacks and queues?
-    *
+    * both are linear data structures
+    * both allow for data to be stored and retrieved
 3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
     * For undoing, queueing would not work because in that situation, the first item would be the oldest tracked action in an array of steps. Using FIFO would return the steps out of order (assuming we would want to undo by moving incrementally backwards in time). Thus we would use LIFO/stack.
     * I think that redoing a step would also require us to use LIFO. Traversing an array of steps that were "undone" using the UNDO command would be easier with LIFO as it would take less operations to find the next step than with FIFO.
@@ -55,6 +56,28 @@ console.log(groceryList);
 
 ```JavaScript
 
-class Queue
+      class Queue {
+        constructor() {
+          this.queue = [];
+        }
+
+        enqueue(item) {
+          this.queue.unshift(item);
+          return this.queue;
+        }
+
+        dequeue() {
+          return this.queue.pop();
+        }
+
+
+        isEmpty() {
+          return this.queue.length === 0;
+        }
+      }
+
+      const todo = new Queue();
+      todo.enqueue('hello');
+      console.log(todo.queue);
 
 ```
