@@ -222,7 +222,7 @@ list.removeDuplicates() //returns a->c->d
    Output: `d -> c -> b -> a`
 
 **EXPLANATION**
-to solve this problem, we made a custom method within our `LinkedList` class
+to solve this problem, we made a custom method within our `LinkedList` class called `reverse`. First step is to swap `head` and `tail`. Then we need to find a way to reverse the flow. Because Linked Lists only flow in one direction, we need to find a way to track our current node before moving to the next node. We achieved this using a new variable called `prev`.  We continue traversing our array via a for loop (though a while would work just as well), reassigning our values as we go until we have reversed our linked list in place.
 
 ``` JavaScript
 class Node {
