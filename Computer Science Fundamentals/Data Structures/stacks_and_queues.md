@@ -29,55 +29,80 @@ console.log(reverseString(oldString));
 
 1. Implement the `pop` method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
 
-... I think I understand this question.
-
+take two:
 ```JavaScript
-let groceryList = ["apples", "bananas", "cheese", "deli meats"]
 
-function popQueue(arr) {
-    let newList = [];
-    let pop = [];
-    for (i = 0; i < arr.length; i++) {
-        if (arr[i] == arr[0]) {
-            pop.push(arr[i]);
-        } else {
-            newList.push(arr[i]);
-        }
-        groceryList = newList;
+class Queue {
+    constructor() {
+        this.queue = [];
     }
-    return pop;
+
+    enqueue(item) {
+        this.queue.push(item);
+        return this.queue;
+    }
+
+    dequeue() {
+        return this.queue.shift();
+    }
+
+
+    isEmpty() {
+        return this.queue.length === 0;
+    }
+
+    pop() {
+        for (let i = 0; i < this.queue.length - 1; i++) {
+            let temp = this.dequeue();
+            this.enqueue(temp);
+        } 
+        return this.dequeue();
+    }
 }
 
-console.log(popQueue(groceryList));
-console.log(groceryList);
+let list = new Queue;
+
+list.enqueue('alpha');
+list.enqueue('beta');
+list.enqueue('charlie');
+list.enqueue('delta');
+list.enqueue('echo');
+list.enqueue('foxtrot')
+
+list.pop()// should return 'foxtrot'
+
+    
 ```
 
 1. Implement the `enqueue` and `dequeue` methods in the checkpoint inside your own `Queue` class.
 
 ```JavaScript
 
-      class Queue {
-        constructor() {
-          this.queue = [];
-        }
+class Queue {
+    constructor() {
+        this.queue = [];
+    }
 
-        enqueue(item) {
-          this.queue.unshift(item);
-          return this.queue;
-        }
+    enqueue(item) {
+        this.queue.push(item);
+        return this.queue;
+    }
 
-        dequeue() {
-          return this.queue.pop();
-        }
+    dequeue() {
+        return this.queue.shift();
+    }
 
 
-        isEmpty() {
-          return this.queue.length === 0;
-        }
-      }
+    isEmpty() {
+        return this.queue.length === 0;
+    }
+}
 
-      const todo = new Queue();
-      todo.enqueue('hello');
-      console.log(todo.queue);
+let todo = new Queue();
+todo.enqueue('hello');
+todo.enqueue('friends');
+console.log(todo.queue); //expected outcome: ['hello','friends']
+
+todo.dequeue(); //expected outcome: ['hello']
 
 ```
