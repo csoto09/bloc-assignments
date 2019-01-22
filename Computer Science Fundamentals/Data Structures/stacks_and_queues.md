@@ -30,6 +30,7 @@ console.log(reverseString(oldString));
 1. Implement the `pop` method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
 
 take two:
+
 ```JavaScript
 
 class Queue {
@@ -55,7 +56,7 @@ class Queue {
         for (let i = 0; i < this.queue.length - 1; i++) {
             let temp = this.dequeue();
             this.enqueue(temp);
-        } 
+        }
         return this.dequeue();
     }
 }
@@ -71,7 +72,7 @@ list.enqueue('foxtrot')
 
 list.pop()// should return 'foxtrot'
 
-    
+
 ```
 
 1. Implement the `enqueue` and `dequeue` methods in the checkpoint inside your own `Queue` class.
