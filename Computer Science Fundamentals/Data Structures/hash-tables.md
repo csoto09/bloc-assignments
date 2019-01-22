@@ -16,145 +16,138 @@
    * The primary and secondary phone numbers for a contact. - **Object**
 1. Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table.
 
-``` JavaScript
-class Customer {
-    constructor() {
-        this.size = 500;
-        this.data = {};
-    }
-
-    hash(key) {
-        let result = 0;
-        for (let i = 0; i < key.length; i++) {
-            result += key.charCodeAt(i);
+    ``` JavaScript
+    class Customer {
+        constructor() {
+            this.size = 500;
+            this.data = {};
         }
-        return result % this.size;
+
+        hash(key) {
+            let result = 0;
+            for (let i = 0; i < key.length; i++) {
+                result += key.charCodeAt(i);
+            }
+            return result % this.size;
+        }
+
+        addContact(contact) {
+            let key = contact.Phone;
+            this.data[this.hash(key)] = contact;
+        }
+
+        search(key) {
+            let query = this.data[this.hash(key)];
+            let result = "No results found.";
+            if(query === undefined) {return result}
+            if(query.Phone===key){result=query;}
+            return result;
+        }
     }
 
-    addContact(contact) {
-        let key = contact.Phone;
-        this.data[this.hash(key)] = contact;
-    }
+    let phonebook = new Customer();
+    phonebook.addContact({
+        Name: 'Uncle Jesse',
+        Phone: '867-5309',
+        Address: '1709 Broderick Street'
+    })
 
-    search(key) {
-        let query = this.data[this.hash(key)];
-        let result = "No results found.";
-        if(query === undefined) {return result}
-        if(query.Phone===key){result=query;}
-        return result;
-    }
-}
+    console.log(phonebook.search('555-1212')); //No results found.
+    console.log(phonebook.search('867-5309')); // Uncle Jesse, 867-5309, 1709 Broderick Street
 
-
-let phonebook = new Customer();
-phonebook.addContact({
-    Name: 'Uncle Jesse',
-    Phone: '867-5309',
-    Address: '1709 Broderick Street'
-})
-
-console.log(phonebook.search('555-1212'));
-console.log(phonebook.search('867-5309'));
-
-```
+    ```
 
 1. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
 
-``` JavaScript
-class Inventory {
-    constructor() {
-        this.size = 1000;
-        this.products = {};
-    }
-
-    hash(key) {
-        let result = 0;
-        for (let i = 0; i < key.length; i++) {
-            result += key.charCodeAt(i);
+    ``` JavaScript
+    class Inventory {
+        constructor() {
+            this.size = 1000;
+            this.products = {};
         }
-        return result % this.size;
+
+        hash(key) {
+            let result = 0;
+            for (let i = 0; i < key.length; i++) {
+                result += key.charCodeAt(i);
+            }
+            return result % this.size;
+        }
+
+        addProduct(product) {
+            let key = product.Name;
+            this.products[this.hash(key)] = product;
+        }
+
+        search(key) {
+            let query = this.products[this.hash(key)];
+            let result = "No results found.";
+            if (query === undefined) { return result }
+            if (query.Name === key) { result = query; }
+            return result;
+        }
     }
 
-    addProduct(product) {
-        let key = product.Name;
-        this.products[this.hash(key)] = product;
-    }
+    let store = new Inventory();
 
-    search(key) {
-        let query = this.products[this.hash(key)];
-        let result = "No results found.";
-        if (query === undefined) { return result }
-        if (query.Name === key) { result = query; }
-        return result;
-    }
-}
+    store.addProduct({ Name: '4k Television', Quantity: 25 });
+    store.addProduct({ Name: 'Bluetooth Soundbar', Quantity: 80 });
 
-let store = new Inventory();
+    console.log(store.products);
 
-store.addProduct({ Name: '4k Television', Quantity: 25 });
-store.addProduct({ Name: 'Bluetooth Soundbar', Quantity: 80 });
-
-
-console.log(store.products);
-
-console.log(store.search('Wireless Headphones'));
-console.log(store.search('Bluetooth Soundbar'));
-```
+    console.log(store.search('Wireless Headphones'));
+    console.log(store.search('Bluetooth Soundbar'));
+    ```
 
 1. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
 
-``` JavaScript
-//Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data
+    ``` JavaScript
+    // input: Publisher name ('STRING'), publishing date ('YYYY-MM-DD')
 
-
-// input: Publisher name ('STRING'), publishing date ('YYYY-MM-DD')
-
-
-class Periodicals {
-    constructor() {
-        this.size = 1000;
-        this.data = {};
-    }
-    hash(key) {
-        let result = 0;
-        for (let i = 0; i < key.length; i++) {
-            result += key.charCodeAt(i);
+    class Periodicals {
+        constructor() {
+            this.size = 1000;
+            this.data = {};
         }
-        return result % this.size;
+        hash(key) {
+            let result = 0;
+            for (let i = 0; i < key.length; i++) {
+                result += key.charCodeAt(i);
+            }
+            return result % this.size;
+        }
+
+        addPaper(paper) {
+            let key = `${paper.ReleaseDate}+${paper.Publisher}`;
+            this.data[this.hash(key)] = paper;
+        }
+
+        searchPeriodicals(date, pub) {
+            let key = `${date}+${pub}`;
+            let query = this.data[this.hash(key)];
+            let result = "No results found.";
+            if (query === undefined) { return result }
+            if (`${query.ReleaseDate}+${query.Publisher}` === key) { result = query; }
+            return result;
+        }
     }
 
-    addPaper(paper) {
-        let key = `${paper.ReleaseDate}+${paper.Publisher}`;
-        this.data[this.hash(key)] = paper;
-    }
+    let archive = new Periodicals()
+    archive.addPaper({
+        Publisher: 'Providence Journal',
+        ReleaseDate: '2019-01-22'
+    })
+    archive.addPaper({ReleaseDate: '1986-09-10', Publisher: 'El Vocero de Puerto Rico'})
+    archive.addPaper({ReleaseDate: '2018-05-01', Publisher: 'Attleboro Sun Chronicle'})
+    archive.data
+    // should see -->
+    // {
+    //     336: {Publisher: "Providence Journal", ReleaseDate: "2019-01-22"}
+    //     715: {ReleaseDate: "1986-09-10", Publisher: "El Vocero de Puerto Rico"}
+    //     767: {ReleaseDate: "2018-05-01", Publisher: "Attleboro Sun Chronicle"}
+    // }
 
-    searchPeriodicals(date, pub) {
-        let key = `${date}+${pub}`;
-        let query = this.data[this.hash(key)];
-        let result = "No results found.";
-        if (query === undefined) { return result }
-        if (`${query.ReleaseDate}+${query.Publisher}` === key) { result = query; }
-        return result;
-    }
-}
+    console.log(archive.searchPeriodicals('2019-01-22','Attleboro Sun Chronicle')) // No results found.
+    console.log(archive.searchPeriodicals('1986-09-10','El Vocero de Puerto Rico')) // should find index 715
 
-
-let archive = new Periodicals()
-archive.addPaper({
-    Publisher: 'Providence Journal',
-    ReleaseDate: '2019-01-22'
-})
-archive.addPaper({ReleaseDate: '1986-09-10', Publisher: 'El Vocero de Puerto Rico'})
-archive.addPaper({ReleaseDate: '2018-05-01', Publisher: 'Attleboro Sun Chronicle'})
-archive.data
-// should see -->
-// {
-//     336: {Publisher: "Providence Journal", ReleaseDate: "2019-01-22"}
-//     715: {ReleaseDate: "1986-09-10", Publisher: "El Vocero de Puerto Rico"}
-//     767: {ReleaseDate: "2018-05-01", Publisher: "Attleboro Sun Chronicle"}
-// }
-
-console.log(archive.searchPeriodicals('2019-01-22','Attleboro Sun Chronicle')) // No results found.
-console.log(archive.searchPeriodicals('1986-09-10','El Vocero de Puerto Rico')) // should find index 715
-
-```
+    ```
