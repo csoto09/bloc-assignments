@@ -13,6 +13,6 @@ d) Find a person in line named "Emily." What should your function return if it d
 e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
 f) If Patrick wants to leave the line, how would you delete him from the array?
 
-2. Provide another real-world example that you can model using a data structure.
+1. Provide another real-world example that you can model using a data structure.
 
-3. How would your data structure allow developers to access and manipulate the data?
+1. How would your data structure allow developers to access and manipulate the data?
