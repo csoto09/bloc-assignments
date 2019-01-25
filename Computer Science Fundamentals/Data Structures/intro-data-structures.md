@@ -1,4 +1,3 @@
-
 1. A line of people at an amusement park ride.
 
    * The line is composed of members, represented as strings.
