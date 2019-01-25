@@ -45,9 +45,11 @@
     console.log(disney) //confirm Patrick is removed from line
     ```
 
-1. Provide another real-world example that you can model using a data structure.
+2. Provide another real-world example that you can model using a data structure.
+	- library inventory, check in and check out!
 
-1. How would your data structure allow developers to access and manipulate the data?
+3. How would your data structure allow developers to access and manipulate the data?
+	- if using JavaScript, we can create a class, save the required data to an array or object and manipulate the data using custom methods. Possible methods include ones to check in, to check out, to mark items as lost or late, etc.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMjMzODA5N119
+eyJoaXN0b3J5IjpbLTE1NjE4NzI5MTQsLTMxMjMzODA5N119
 -->
