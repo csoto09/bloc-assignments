@@ -1,109 +1,56 @@
-# Stacks and Queues
 
-1. What's the main difference between a stack and a queue?
-    * The order in which the data is processed: a stack uses LIFO (last one added is the first one to be processed), while queues use FIFO (first one added is the first one to be processed - like standing in line to check out at the grocery store).
-2. What are the similarities between stacks and queues?
-    * both are linear data structures
-    * both allow for data to be stored and retrieved
-3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
-    * For undoing, queueing would not work because in that situation, the first item would be the oldest tracked action in an array of steps. Using FIFO would return the steps out of order (assuming we would want to undo by moving incrementally backwards in time). Thus we would use LIFO/stack.
-    * I think that redoing a step would also require us to use LIFO. Traversing an array of steps that were "undone" using the UNDO command would be easier with LIFO as it would take less operations to find the next step than with FIFO.
+1. A line of people at an amusement park ride.
 
-## Programming Questions
+   * The line is composed of members, represented as strings.
+   * There is a front to the line, as well as a back.
+   * When someone enters the line, place them at the end.
+   * People may leave the line whenever they see fit, and those behind them take their place.
+   * Given the above real-world information, use an array data structure to code the following solution.
 
-1. Given a string, reverse it using a stack. For example, the string `"Bloc!"` should be converted to `"!colB"`.
+    a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
 
-``` JavaScript
-let oldString = "sunset";
+    ```JavaScript
+    let disney = ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+    ```
 
-function reverseString(str) {
-    let newString = "";
-    for (let i = str.length - 1; i >= 0; i--) {
+    b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
 
-        newString += str[i]
-    }
-    return newString;
-}
-console.log(reverseString(oldString));
-```
+    ``` js
+    disney.push("Mary");
+    ```
 
-1. Implement the `pop` method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
+    c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
 
-take two:
+    ``` js
+    disney.indexOf("Josh"); //returns 2
+    ```
 
-```JavaScript
+    d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
 
-class Queue {
-    constructor() {
-        this.queue = [];
-    }
+    ``` JavaScript
+    disney.includes('Emily'); // return true if found, false if not.
+    ```
 
-    enqueue(item) {
-        this.queue.push(item);
-        return this.queue;
-    }
+    e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
 
-    dequeue() {
-        return this.queue.shift();
-    }
+    ``` JavaScript
+    disney.splice(1,0,"Melissa"); // add Melissa to queue at index 1.
+    console.log(disney); //confirm Melissa is now in front of Ava.
+    ```
+        
+    f) If Patrick wants to leave the line, how would you delete him from the array?
 
+    ``` js
+    disney.indexOf('Patrick'); // returns 4
+    disney.splice(4,1); //returns removed value of Patrick
+    console.log(disney) //confirm Patrick is removed from line
+    ```
 
-    isEmpty() {
-        return this.queue.length === 0;
-    }
+2. Provide another real-world example that you can model using a data structure.
+	- library inventory, check in and check out!
 
-    pop() {
-        for (let i = 0; i < this.queue.length - 1; i++) {
-            let temp = this.dequeue();
-            this.enqueue(temp);
-        }
-        return this.dequeue();
-    }
-}
-
-let list = new Queue;
-
-list.enqueue('alpha');
-list.enqueue('beta');
-list.enqueue('charlie');
-list.enqueue('delta');
-list.enqueue('echo');
-list.enqueue('foxtrot')
-
-list.pop()// should return 'foxtrot'
-
-
-```
-
-1. Implement the `enqueue` and `dequeue` methods in the checkpoint inside your own `Queue` class.
-
-```JavaScript
-
-class Queue {
-    constructor() {
-        this.queue = [];
-    }
-
-    enqueue(item) {
-        this.queue.push(item);
-        return this.queue;
-    }
-
-    dequeue() {
-        return this.queue.shift();
-    }
-
-
-    isEmpty() {
-        return this.queue.length === 0;
-    }
-}
-
-let todo = new Queue();
-todo.enqueue('hello');
-todo.enqueue('friends');
-console.log(todo.queue); //expected outcome: ['hello','friends']
-
-todo.dequeue(); //expected outcome: ['hello']
-
-```
+3. How would your data structure allow developers to access and manipulate the data?
+	- if using JavaScript, we can create a class, save the required data to an array or object and manipulate the data using custom methods. Possible methods include ones to check in, to check out, to mark items as lost or late, etc.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTExMjczNjQ0ODBdfQ==
+-->
