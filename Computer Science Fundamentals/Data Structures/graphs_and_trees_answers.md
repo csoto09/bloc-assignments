@@ -13,8 +13,9 @@
 1. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
 	* undirected - able to move back and forth through the graph
 	* a-cyclic - defined start and finish. does not loop to beginning when reaching the leaf node.
-	* unweighted - no penalty to 
+	* unweighted - no penalty to move from one node to another.
+1. What kind of graph is a binary search tree?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMxMTYwODg4OCw4NTYzMjY3MTQsODcxNj
-cxMDg1XX0=
+eyJoaXN0b3J5IjpbLTUwMDQ2OTAwMCwxMzExNjA4ODg4LDg1Nj
+MyNjcxNCw4NzE2NzEwODVdfQ==
 -->
