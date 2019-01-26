@@ -8,7 +8,8 @@
    * some theoretical applications of heuristics include the Null-move heuristic, N-queens problem and the traveling salesman problem.
    * real life applications include maps (as discussed in checkpoint), search engines and antivirus programs.
 4. What is the difference between a depth-first search and a breadth-first search?
-	* DFS travels *down* a single branch whi
+	* DFS travels *down* a single branch while looking for a specific node. If not found, it switches to an adjacent branch and travels up to continue the search.
+	* BFS travels through a single row while searching. If 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NTgxMTQ2Miw4NzE2NzEwODVdfQ==
+eyJoaXN0b3J5IjpbLTE4MDA2ODczNDUsODcxNjcxMDg1XX0=
 -->
