@@ -11,7 +11,10 @@
 	* DFS travels *down* a single branch while looking for a specific node. If not found, it switches to an adjacent branch and travels up to continue the search.
 	* BFS travels through a single row while searching. If not found, it goes down a row before continuing to search laterally.
 1. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+	* undirected - able to move back and forth through the graph
+	* a-cyclic - defined start and finish. does not loop to beginning when reaching the leaf node.
 	* 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU2MzI2NzE0LDg3MTY3MTA4NV19
+eyJoaXN0b3J5IjpbLTE1MTkyNzg2NDYsODU2MzI2NzE0LDg3MT
+Y3MTA4NV19
 -->
