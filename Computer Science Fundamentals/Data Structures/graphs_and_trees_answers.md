@@ -18,7 +18,11 @@
 	* directed, a-cyclic, unweighted
 
 ## Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+2. Given a Binary Search Tree and two nodes,  `n1`  and  `n2`, write a function that finds the distance between the two nodes.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjU3ODAzNDQsLTUwMDQ2OTAwMCwxMz
-ExNjA4ODg4LDg1NjMyNjcxNCw4NzE2NzEwODVdfQ==
+eyJoaXN0b3J5IjpbLTQ0NTA1NDgzMCwtNTAwNDY5MDAwLDEzMT
+E2MDg4ODgsODU2MzI2NzE0LDg3MTY3MTA4NV19
 -->
