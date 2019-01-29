@@ -21,8 +21,95 @@
 
 1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
 
+	``` JavaScript
+	class Node {
+	    constructor(value) {
+	        this.value = value;
+	        this.left = null;
+	        this.right = null;
+	    }
+	}
+
+	class BinarySearchTree {
+	    constructor() {
+	        this.root = null;
+	    }
+	    insert(value) {
+	        let newNode = new Node(value);
+	        if (this.root === null) {
+	            this.root = newNode;
+	            return this;
+	        }
+	        let current = this.root;
+	        while (true) {
+	            if (value === current.value) return undefined;
+	            if (value < current.value) {
+	                if (current.left === null) {
+	                    current.left = newNode;
+	                    return this;
+	                }
+	                current = current.left;
+	            } else {
+	                if (current.right === null) {
+	                    current.right = newNode;
+	                    return this;
+	                }
+	                current = current.right;
+	            }
+	        }
+	    }
+	    find(value) {
+	        if (this.root === null) return false;
+	        let current = this.root,
+	            found = false;
+	        while (current && !found) {
+	            if (value < current.value) {
+	                current = current.left;
+	            } else if (value > current.value) {
+	                current = current.right;
+	            } else {
+	                found = true;
+	            }
+	        }
+	        if (!found) return undefined;
+	        return current;
+	    }
+	    contains(value) {
+	        if (this.root === null) return false;
+	        let current = this.root,
+	            found = false;
+	        while (current && !found) {
+	            if (value < current.value) {
+	                current = current.left;
+	            } else if (value > current.value) {
+	                current = current.right;
+	            } else {
+	                return true;
+	            }
+	        }
+	        return false;
+	    }
+	}
+
+	let tree = new BinarySearchTree();
+	tree.insert(8)
+	tree.insert(3)
+	tree.insert(10)
+	tree.insert(1)
+	tree.insert(6)
+	tree.insert(14)
+	tree.insert(4)
+	tree.insert(7)
+	tree.insert(13)
+
+
+	tree.contains(23) //false
+	tree.contains(10) //true
+
+	```
 2. Given a Binary Search Tree and two nodes,  `n1`  and  `n2`, write a function that finds the distance between the two nodes.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0NTA1NDgzMCwtNTAwNDY5MDAwLDEzMT
-E2MDg4ODgsODU2MzI2NzE0LDg3MTY3MTA4NV19
+eyJoaXN0b3J5IjpbLTcxMjcwNjY2LC00NDUwNTQ4MzAsLTUwMD
+Q2OTAwMCwxMzExNjA4ODg4LDg1NjMyNjcxNCw4NzE2NzEwODVd
+fQ==
 -->
