@@ -4,7 +4,10 @@
 1. What is runtime?
 1. How is the runtime of an algorithm calculated?
 	* If referring to runtime as synonymous with time complexity, then we must do the following: 
-		1. Add how many instructions an algorithm will execute as
+		1. Add how many instructions an algorithm will execute per the size of its input
+		1. Simplify the expression to the largest term *(recall we are looking for worst-case scenario)*
+		1. drop any constants
+	* Runtime is then expressed using Big O notation (
 1. Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
    1. O(1) - constant growth
    1. O(log n) - logarithmic growth
@@ -61,5 +64,5 @@ END FUNCTION
 
 1. Out of the code snippets you just saw, which is the most time efficient?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNDIwOTM5OF19
+eyJoaXN0b3J5IjpbLTExMDAzNjc0ODNdfQ==
 -->
