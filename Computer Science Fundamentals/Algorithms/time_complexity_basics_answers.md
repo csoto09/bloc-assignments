@@ -50,7 +50,7 @@ END FUNCTION
 ```
 
 1. Determine the time complexity of the following snippet of code. It is commonly known as the Fibonacci sequence.
-***IF input is greater than 2, TC should be O(n^2)***
+***IF input is greater than 2, TC should be O(2^n)*** -- oops. i knew this was factorial and not quadratic but wrote the wrong one
 
 ```
 FUNCTION fibonacci(number)
@@ -67,3 +67,4 @@ END FUNCTION
 ```
 
 1. Out of the code snippets you just saw, which is the most time efficient?
+   * Linear search, time complexity of o(n)
