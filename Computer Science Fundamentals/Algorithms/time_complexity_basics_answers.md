@@ -10,6 +10,7 @@
    1. O(n) - linear growth
    1. O(n log n) - log-linear, also known as quasi-linear
    1. O(n^2) - quadratic growth
+   1. Cubic Growth Rate - O(n^3) - **NOT COVERED**
    1. O(2^n) - exponential growth rate
    1. O(n!) - factorial growth rate - **NOT COVERED**
 1. Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.
