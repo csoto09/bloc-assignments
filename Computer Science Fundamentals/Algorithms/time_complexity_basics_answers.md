@@ -1,13 +1,16 @@
 # Time Complexity
 
 1. What is time complexity and what is its relation to algorithms?
+    * estimate of the amount of time a program will take to run (in terms of the number of operations per input).
+    * in relation to algorithms, TC is an estimate of the overall length of time the algorithm will take to complete all operations per input in its worst case scenario.
 1. What is runtime?
+    * in strict terms, runtime is the actual time duration of an algorithm. Also considered to be a synonym to Time Complexity (see above).
 1. How is the runtime of an algorithm calculated?
-	* If referring to runtime as synonymous with time complexity, then we must do the following: 
-		1. Add how many instructions an algorithm will execute per the size of its input
-		1. Simplify the expression to the largest term *(recall we are looking for worst-case scenario)*
-		1. drop any constants
-	* Runtime is then expressed using Big O notation -- **O(n)**
+    * If referring to runtime as synonymous with time complexity, then we must do the following:
+        1. Add how many instructions an algorithm will execute per the size of its input
+        1. Simplify the expression to the largest term *(recall we are looking for worst-case scenario)*
+        1. drop any constants
+    * Runtime is then expressed using Big O notation -- **O(n)**
 1. Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
    1. O(1) - constant growth
    1. O(log n) - logarithmic growth
@@ -19,7 +22,7 @@
    1. O(2^n) - exponential growth rate
    1. O(n!) - factorial growth rate - **NOT COVERED**
 1. Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.
-
+    * Linear growth - food shopping. if avocados cost $1.50 each and I buy 3 avocados, then the price of buying these avocados increases by a factor of *n*, with *n* being the amount of avocadoes I bought to make guacamole for my party.
 
 1. Determine the time complexity of the following snippet of code. It is commonly known as a linear search. - ***O(n)***
 
@@ -34,7 +37,7 @@ FUNCTION linearSearch(array, target)
 END FUNCTION
 ```
 
-1. Determine the time complexity of the following snippet of code.
+1. Determine the time complexity of the following snippet of code. - ***O(n^2)***
 
 ```
 FUNCTION foo(array)
@@ -47,6 +50,7 @@ END FUNCTION
 ```
 
 1. Determine the time complexity of the following snippet of code. It is commonly known as the Fibonacci sequence.
+***IF input is greater than 2, TC should be O(n^2)***
 
 ```
 FUNCTION fibonacci(number)
@@ -63,6 +67,3 @@ END FUNCTION
 ```
 
 1. Out of the code snippets you just saw, which is the most time efficient?
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzY2ODkwMzFdfQ==
--->
