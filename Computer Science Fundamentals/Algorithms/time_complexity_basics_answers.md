@@ -3,6 +3,8 @@
 1. What is time complexity and what is its relation to algorithms?
 1. What is runtime?
 1. How is the runtime of an algorithm calculated?
+	* If referring to runtime as synonymous with time complexity, then we must do the following: 
+		1. Add how many instructions an algorithm will execute as
 1. Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
    1. O(1) - constant growth
    1. O(log n) - logarithmic growth
@@ -58,3 +60,6 @@ END FUNCTION
 ```
 
 1. Out of the code snippets you just saw, which is the most time efficient?
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTgyNDIwOTM5OF19
+-->
