@@ -1,9 +1,6 @@
 function binarySearch(collection, value) {
-  collection = collection.sort()
-  value = value.toLowerCase()
   let low = 0;
   let high = collection.length - 1;
-
   let mid = Math.floor((low + high) / 2);
   while (collection[mid] !== value && low <= high) {
     if (collection[mid] > value) {
@@ -12,9 +9,8 @@ function binarySearch(collection, value) {
     }
     else {
       low = mid + 1
-      console.log(`low -- ${collection[low]} - ${high}`);
-      
-    } 
+      console.log(`low -- ${collection[low]} - ${low}`);
+    }
     mid = Math.floor((low + high) / 2)
   }
   console.log(`mid -- ${collection[mid]}`)
@@ -24,4 +20,3 @@ function binarySearch(collection, value) {
 let fishes = [ 'Comet Goldfish', 'Comet Goldfish', 'Common Goldfish', 'Common Goldfish', 'Common Goldfish', 'Common Goldfish', 'Common Goldfish', 'Common Goldfish', 'Common Goldfish', 'Common Goldfish', 'Common Goldfish', 'Fantail Goldfish', 'Fantail Goldfish', 'Fantail Goldfish', 'Fantail Goldfish', 'Fantail Goldfish', 'Oranda Goldfish', 'Oranda Goldfish', 'Oranda Goldfish', 'White-Spotted Goldfish' ]
 
 binarySearch(fishes, "White-Spotted Goldfish")
-
