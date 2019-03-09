@@ -2,45 +2,61 @@
 
 1. Using proper pseudocode, describe the following primitive algorithms:
     * Making coffee -
-      1. Weigh coffee beans to required amount
-      1. Grind coffee beans
-      1. Place coffee filter in coffee maker
-      1. Add coffee grounds to filter
-      1. Add water to coffee maker reservoir and close lid
-      1. Power on coffee maker
-      1. Wait for coffee maker to finish brewing coffee
-      1. Pour coffee into cup
-      1. Drink Coffee
+
+      ```
+      FUNCTION prepareCoffee(water, coffee beans)
+          Call weighCoffee with input "coffee beans" returning TRUE if amount is sufficient
+          Call grindCoffee with input "coffee beans" returning "coffee grinds"
+
+          SET filter to TRUE
+
+          IF filter = true AND "coffee grinds" THEN
+              call brewCoffee(water, filter, coffee grinds) returning "Cup of Coffee"
+          END IF
+      END FUNCTION
+      ```
+
     * Washing dishes
-      1. Turn on faucet
-      1. Adjust knobs until water temperature is lukewarm
-      1. Rinse sponge or other cleaning utensil to ensure it is clean and damp
-      1. Apply soap to cleaning utensil
-      1. Using cleaning tool, apply soap to all surfaces of dirty food vessels
-      1. Rinse food vessels under running water
-      1. If item is still dirty, repeat steps 5 and 6
-      1. Put item on drying rack
-      1. Repeat steps 5-8 for remaining dirty dishes
+
+      ```
+      FUNCTION washDishes(dirty dishes, soap, sponge)
+        CALL turnOnFaucet() returning "lukewarm water"
+        COMPUTE soapySponge to "lukewarm water" + soap + sponge
+
+        SET dryingRack to []
+        FOR each dish IN dirty dishes
+          call scrubDish(dish, soapySponge) returning cleanDish
+          PUSH cleanDish to dryingRack
+        END FOR
+      END FUNCTION
+      ```
+
     * A choice of your own - filling up your car with gas
-      1. Drive to a nearby gas station.
-      1. Pull up to unoccupied gas pump.
-      1. Turn off car
-      1. Exit the car
-      1. Open fuel hatch
-      1. Carefully remove pressurized gas cap, exposing the fuel filler neck
-      1. Insert credit card into opening on gas pump and follow on screen prompts
-      1. Select fuel grade
-      1. Grab fuel nozzle
-      1. Insert fuel nozzle into filler neck.
-      1. Pull trigger on gas nozzle
-      1. Hold gas nozzle trigger until safety mechanism shuts down flow of gasoline. This indicates your tank is full.
-      1. Place gas nozzle into receptable on gas pump.
-      1. Optionally, get receipt from pump.
-      1. Replace gas cap, turning until you hear a click.
-      1. Close fuel hatch.
-      1. Enter car
-      1. Turn on car.
-      1. Drive away from gas station.
+
+      ```
+      FUNCTION fillGasTank(car, "payment method")
+          CALL drive() with input Gas Station returning "arrived"
+
+          IF gas = 0 THEN
+              CALL pushCar() with input Unoccupied Gas Pump returning "arrived"
+          ELSE
+              CALL drive() with input Unoccupied Gas Pump
+          END IF
+
+          SET gasCap = false
+          FOR gas = 0 TO 100
+              call pumpGas()
+              INCREMENT gas
+          END FOR
+
+          IF gas = 100
+              SET gasCap = true
+          END IF
+
+          CALL drive() with input home
+      END FUNCTION
+     ```
+
 1. As with the knot algoritm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g. Google's search algoritm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
    1. P. Duff and Sons, Cake Mix: In 1930, due to a surplus of molasses, owner invents a method to dehydrate molasses and add it to a flour mix, simplifying and reducing the steps involved and allowing consumers to make a cake by just adding water and eggs to the mix.
    1. Glucose Meters, Bayer and Roche, 1980s: home glucose monitoring was shown to improve control of type 1 diabetes in the late 70s, with the first meters marketed for home use by 1981. The introduction of these meters to the market allowed patients to monitor their levels with sufficient accuracy and readiness to control their symptoms without needing to rely on infrequent lab tests.
