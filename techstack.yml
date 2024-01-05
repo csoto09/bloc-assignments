@@ -1,7 +1,8 @@
 repo_name: csoto09/bloc-assignments
 report_id: d700979198df267d6b3b93b9442ead37
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-17T01:15:35+00:00'
+timestamp: '2024-01-05T08:37:56+00:00'
 requested_by: csoto09
 provider: github
 branch: main
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/csoto09/bloc-assignments
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -25,4 +27,5 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/csoto09/bloc-assignments
   detection_source: Repo Metadata
